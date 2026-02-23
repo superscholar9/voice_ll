@@ -1,0 +1,193 @@
+/* ============================================
+   Audio Alchemy Design System - Design Tokens
+   Theme: Dark Neon Cyberpunk with Glassmorphism
+   ============================================ */
+
+:root {
+  /* ===== Color System - Light Theme (Minimalist) ===== */
+
+  /* Background Colors */
+  --bg-primary: #f8fafc;        /* Off-white - main background */
+  --bg-secondary: #ffffff;      /* Pure white - cards, surfaces */
+  --bg-tertiary: #f1f5f9;       /* Light gray - elevated surfaces */
+  --bg-elevated: #e2e8f0;       /* Highest elevation */
+
+  /* Accent Colors - Soft Blue Palette */
+  --neon-cyan: #3b82f6;         /* Soft blue - primary accent */
+  --neon-magenta: #60a5fa;      /* Light blue - secondary accent */
+  --neon-purple: #93c5fd;       /* Very light blue - tertiary accent */
+  --neon-blue: #1e40af;         /* Deep blue - for contrast */
+  --neon-pink: #7c3aed;         /* Soft purple - alternative accent */
+  --neon-green: #10b981;        /* Soft green - success/active state */
+
+  /* Accent Colors - Dimmed Variants */
+  --neon-cyan-dim: rgba(59, 130, 246, 0.15);
+  --neon-magenta-dim: rgba(96, 165, 250, 0.15);
+  --neon-purple-dim: rgba(147, 197, 253, 0.15);
+  --neon-blue-dim: rgba(30, 64, 175, 0.15);
+
+  /* Text Colors */
+  --text-primary: #1e293b;      /* Dark gray - headings */
+  --text-secondary: #475569;    /* Medium gray - body text */
+  --text-tertiary: #64748b;     /* Light gray - muted text */
+  --text-muted: #94a3b8;        /* Very light gray - hints */
+  --text-neon: var(--neon-cyan); /* Blue accent text */
+
+  /* ===== Gradients ===== */
+
+  /* Primary Gradients */
+  --gradient-primary: linear-gradient(135deg, var(--neon-cyan) 0%, var(--neon-magenta) 100%);
+  --gradient-secondary: linear-gradient(135deg, var(--neon-magenta) 0%, var(--neon-purple) 100%);
+  --gradient-audio: linear-gradient(90deg, var(--neon-cyan) 0%, var(--neon-magenta) 50%, var(--neon-purple) 100%);
+  --gradient-success: linear-gradient(135deg, #10b981 0%, #059669 100%);
+
+  /* Background Gradients */
+  --gradient-bg-radial: radial-gradient(circle at 50% 0%, rgba(59, 130, 246, 0.08) 0%, transparent 50%);
+  --gradient-bg-mesh:
+    radial-gradient(at 0% 0%, rgba(59, 130, 246, 0.08) 0%, transparent 50%),
+    radial-gradient(at 100% 0%, rgba(96, 165, 250, 0.08) 0%, transparent 50%),
+    radial-gradient(at 100% 100%, rgba(147, 197, 253, 0.08) 0%, transparent 50%),
+    radial-gradient(at 0% 100%, rgba(59, 130, 246, 0.08) 0%, transparent 50%);
+
+  /* ===== Glassmorphism Effects ===== */
+
+  /* Glass Backgrounds */
+  --glass-bg: rgba(255, 255, 255, 0.8);
+  --glass-bg-light: rgba(248, 250, 252, 0.9);
+  --glass-bg-dark: rgba(241, 245, 249, 0.85);
+
+  /* Glass Borders */
+  --glass-border: rgba(59, 130, 246, 0.1);
+  --glass-border-bright: rgba(59, 130, 246, 0.2);
+
+  /* Backdrop Blur */
+  --blur-sm: blur(8px);
+  --blur-md: blur(16px);
+  --blur-lg: blur(24px);
+  --blur-xl: blur(40px);
+
+  /* ===== Shadows & Glows ===== */
+
+  /* Standard Shadows */
+  --shadow-sm: 0 2px 8px rgba(30, 41, 59, 0.08);
+  --shadow-md: 0 4px 16px rgba(30, 41, 59, 0.12);
+  --shadow-lg: 0 8px 32px rgba(30, 41, 59, 0.15);
+  --shadow-xl: 0 16px 48px rgba(30, 41, 59, 0.2);
+
+  /* Soft Glows (for hover states) */
+  --glow-cyan: 0 0 20px rgba(59, 130, 246, 0.3), 0 0 40px rgba(59, 130, 246, 0.15);
+  --glow-magenta: 0 0 20px rgba(96, 165, 250, 0.3), 0 0 40px rgba(96, 165, 250, 0.15);
+  --glow-purple: 0 0 20px rgba(147, 197, 253, 0.3), 0 0 40px rgba(147, 197, 253, 0.15);
+  --glow-green: 0 0 20px rgba(16, 185, 129, 0.3), 0 0 40px rgba(16, 185, 129, 0.15);
+
+  /* Soft Glows (for hover states) */
+  --glow-cyan-soft: 0 0 10px rgba(59, 130, 246, 0.2);
+  --glow-magenta-soft: 0 0 10px rgba(96, 165, 250, 0.2);
+
+  /* Inner Glows */
+  --glow-inner-cyan: inset 0 0 20px rgba(59, 130, 246, 0.1);
+  --glow-inner-magenta: inset 0 0 20px rgba(96, 165, 250, 0.1);
+
+  /* ===== Border Radius ===== */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --radius-2xl: 32px;
+  --radius-full: 9999px;
+
+  /* ===== Spacing System ===== */
+  --spacing-xs: 0.5rem;    /* 8px */
+  --spacing-sm: 1rem;      /* 16px */
+  --spacing-md: 1.5rem;    /* 24px */
+  --spacing-lg: 2rem;      /* 32px */
+  --spacing-xl: 3rem;      /* 48px */
+  --spacing-2xl: 4rem;     /* 64px */
+  --spacing-3xl: 6rem;     /* 96px */
+
+  /* ===== Typography ===== */
+
+  /* Font Families */
+  --font-display: 'Orbitron', 'Rajdhani', 'Exo 2', sans-serif;  /* Futuristic headings */
+  --font-body: 'DM Sans', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;  /* Clean body text */
+  --font-mono: 'JetBrains Mono', 'Fira Code', 'SF Mono', monospace;  /* Code/technical */
+
+  /* Font Sizes */
+  --text-xs: 0.75rem;      /* 12px */
+  --text-sm: 0.875rem;     /* 14px */
+  --text-base: 1rem;       /* 16px */
+  --text-lg: 1.125rem;     /* 18px */
+  --text-xl: 1.25rem;      /* 20px */
+  --text-2xl: 1.5rem;      /* 24px */
+  --text-3xl: 1.875rem;    /* 30px */
+  --text-4xl: 2.25rem;     /* 36px */
+  --text-5xl: 3rem;        /* 48px */
+  --text-6xl: 3.75rem;     /* 60px */
+
+  /* Font Weights */
+  --weight-normal: 400;
+  --weight-medium: 500;
+  --weight-semibold: 600;
+  --weight-bold: 700;
+  --weight-black: 900;
+
+  /* Line Heights */
+  --leading-tight: 1.2;
+  --leading-normal: 1.5;
+  --leading-relaxed: 1.75;
+
+  /* Letter Spacing */
+  --tracking-tight: -0.02em;
+  --tracking-normal: 0;
+  --tracking-wide: 0.05em;
+  --tracking-wider: 0.1em;
+
+  /* ===== Transitions ===== */
+  --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-base: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-slow: 350ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-bounce: 500ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+  /* ===== Z-Index Scale ===== */
+  --z-base: 0;
+  --z-dropdown: 100;
+  --z-sticky: 200;
+  --z-fixed: 300;
+  --z-modal-backdrop: 400;
+  --z-modal: 500;
+  --z-popover: 600;
+  --z-tooltip: 700;
+
+  /* ===== Noise Texture ===== */
+  --noise-opacity: 0.02;
+  --noise-pattern: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+
+  /* ===== Animation Durations ===== */
+  --duration-instant: 100ms;
+  --duration-fast: 200ms;
+  --duration-normal: 300ms;
+  --duration-slow: 500ms;
+  --duration-slower: 700ms;
+
+  /* ===== Semantic Colors ===== */
+  --color-success: #00ff88;
+  --color-warning: #ffaa00;
+  --color-error: #ff3366;
+  --color-info: var(--neon-cyan);
+
+  /* Semantic Backgrounds */
+  --bg-success: rgba(0, 255, 136, 0.1);
+  --bg-warning: rgba(255, 170, 0, 0.1);
+  --bg-error: rgba(255, 51, 102, 0.1);
+  --bg-info: rgba(0, 240, 255, 0.1);
+
+  /* ===== Interactive States ===== */
+  --state-hover-opacity: 0.8;
+  --state-active-opacity: 0.6;
+  --state-disabled-opacity: 0.4;
+
+  /* ===== Border Widths ===== */
+  --border-thin: 1px;
+  --border-medium: 2px;
+  --border-thick: 3px;
+}

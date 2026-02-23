@@ -1,0 +1,73 @@
+version: '3.8'
+
+services:
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    ports:
+      - "8000:8000"
+    environment:
+      - API_KEY=${API_KEY}
+      - SOVITS_BASE_URL=http://sovits:9880
+      - ALLOWED_ORIGINS=http://localhost:3000
+    depends_on:
+      - sovits
+      - redis
+    volumes:
+      - ./backend:/app
+    command: uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload
+
+  worker:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    environment:
+      - API_KEY=${API_KEY}
+      - SOVITS_BASE_URL=http://sovits:9880
+      - REDIS_URL=redis://redis:6379/0
+    depends_on:
+      - redis
+      - sovits
+    volumes:
+      - ./backend:/app
+    command: celery -A app.tasks.cover_tasks worker --loglevel=INFO --queues=cover
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    environment:
+      - VITE_API_URL=http://localhost:8000
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+    command: npm run dev -- --host
+
+  sovits:
+    image: gptsovits:latest
+    ports:
+      - "9880:9880"
+    volumes:
+      - ./models:/models
+    # Note: You'll need to build the GPT-SoVITS Docker image separately
+    # or use their official image if available
+
+  redis:
+    image: redis:7-alpine
+    ports:
+      - "6379:6379"
+
+# Optional: Add nginx reverse proxy for production
+#  nginx:
+#    image: nginx:alpine
+#    ports:
+#      - "80:80"
+#      - "443:443"
+#    volumes:
+#      - ./nginx.conf:/etc/nginx/nginx.conf
+#    depends_on:
+#      - backend
+#      - frontend
